@@ -2,14 +2,18 @@
   "name": "chatbot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preinstall": "npm install pm2 -g",
+    "dev": "nodemon",
+    "production": "pm2 start bot.js --name backend -i max --attach"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "nodemon": "^1.14.12",
+    "pm2": "^2.9.3",
     "telegraf": "3.17.3"
   }
 }
