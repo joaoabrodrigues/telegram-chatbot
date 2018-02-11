@@ -1,3 +1,3 @@
 # telegram-chatbot
 
-Creating my first telegram chatbot
+Examples to build a telegram chatbot
