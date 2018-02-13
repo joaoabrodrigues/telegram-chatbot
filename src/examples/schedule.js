@@ -9,10 +9,10 @@ bot.start(async (ctx, next) => {
     const from = ctx.update.message.from
     if (from.id === env.myId) {
         await ctx.reply(`Hello ${from.first_name}, I will send you the price of bitcoin!`)
+        next()
     } else {
         await ctx.reply('I don\'t know you, go fuck yourself!')
     }
-    next()
 })
 
 bot.use(async ctx => {
