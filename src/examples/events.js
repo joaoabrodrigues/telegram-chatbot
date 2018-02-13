@@ -5,11 +5,7 @@ const bot = new Telegraf(env.token)
 
 bot.start(ctx => {
     const from = ctx.update.message.from
-    if (from.id === env.myId) {
-        ctx.reply(`Hello ${from.first_name}, welcome!`)
-    } else {
-        ctx.reply('I don\'t know you, go fuck yourself!')
-    }
+    ctx.reply(`Hello ${from.first_name}, welcome!`)
 })
 
 bot.on('text', ctx => {

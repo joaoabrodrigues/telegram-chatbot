@@ -7,12 +7,7 @@ const bot = new Telegraf(env.token)
 
 bot.start(async (ctx, next) => {
     const from = ctx.update.message.from
-    if (from.id === env.myId) {
-        await ctx.reply(`Hello ${from.first_name}, I will send you the price of bitcoin!`)
-    } else {
-        await ctx.reply('I don\'t know you, go fuck yourself!')
-    }
-    next()
+    await ctx.reply(`Hello ${from.first_name}, welcome!`)
 })
 
 bot.on('voice', async ctx => {
