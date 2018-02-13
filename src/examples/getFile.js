@@ -1,9 +1,19 @@
-const env = require('../.env');
+const env = require('../../.env');
 const Telegraf = require('telegraf')
 const schedule = require('node-schedule')
 const axios = require('axios');
 
 const bot = new Telegraf(env.token)
+
+bot.start(async (ctx, next) => {
+    const from = ctx.update.message.from
+    if (from.id === env.myId) {
+        await ctx.reply(`Hello ${from.first_name}, I will send you the price of bitcoin!`)
+    } else {
+        await ctx.reply('I don\'t know you, go fuck yourself!')
+    }
+    next()
+})
 
 bot.on('voice', async ctx => {
     const id = ctx.update.message.voice.file_id
