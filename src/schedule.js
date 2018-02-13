@@ -1,7 +1,7 @@
 const env = require('../.env');
 const Telegraf = require('telegraf')
 const schedule = require('node-schedule')
-const request = require('request');
+const axios = require('axios');
 
 const bot = new Telegraf(env.token)
 
@@ -19,8 +19,8 @@ bot.use(ctx => {
     var rule = new schedule.RecurrenceRule()
     rule.minute = 0
     schedule.scheduleJob(rule, () => {
-        request.get(env.apiBitcoin, (err, resp, body) => {
-            ctx.reply(`The current price of BTC is: ${JSON.parse(body)[0].price_usd}`);
+        axios.get(env.apiBitcoin).then(resp => {
+            ctx.reply(`BTC price: US$ ${resp.data[0].price_usd}`);
         })
     })
 })
