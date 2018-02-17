@@ -17,7 +17,7 @@ bot.start(async (ctx, next) => {
 
 bot.use(async ctx => {
     var rule = new schedule.RecurrenceRule()
-    rule.minute = 0
+    rule.minute = [0,29]
     await schedule.scheduleJob(rule, () => {
         axios.get(env.apiBitcoin).then(resp => {
             ctx.reply(`BTC price: US$ ${resp.data[0].price_usd}`);
