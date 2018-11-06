@@ -21,7 +21,7 @@ bot.use(async ctx => {
 
     await schedule.scheduleJob(rule, () => {
         axios.get(env.apiBitcoin).then(resp => {
-            ctx.reply(`BTC price: US$ ${resp.data[0].price_usd}`);
+            ctx.reply(`BTC price: US$ ${Number(resp.data[0].price_usd).toFixed(2)}`);
         })
     })
 })
