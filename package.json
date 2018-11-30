@@ -6,17 +6,19 @@
   "scripts": {
     "preinstall": "npm install pm2 -g",
     "dev": "nodemon",
-    "production": "pm2 start bot.js --name backend -i max --attach"
+    "production": "pm2 start src/examples/schedule2.js --name schedule2"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.17.1",
+    "cheerio": "^1.0.0-rc.2",
     "moment": "^2.20.1",
     "node-schedule": "^1.3.0",
     "nodemon": "^1.18.3",
     "pm2": "^2.9.3",
+    "puppeteer": "^1.11.0",
     "telegraf": "3.17.3"
   }
 }
